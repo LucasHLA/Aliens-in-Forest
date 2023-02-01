@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Shooting();
+        
     }
 
     private void Move()
@@ -90,5 +91,23 @@ public class Player : MonoBehaviour
             StartCoroutine(PreShooting());
             StartCoroutine(OnShooting());   
         }
+    }
+
+    public void Hit(int dmg)
+    {
+        health -= dmg;
+        anim.SetTrigger("hit");
+
+        if (health <= 0)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        anim.SetTrigger("dead");
+        speed = 0;
+        
     }
 }

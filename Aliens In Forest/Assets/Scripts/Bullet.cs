@@ -19,8 +19,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("enemy"))
         {
-            //Enemy hit method will be called here by the collision
             anim.SetTrigger("hit");
+            collision.gameObject.GetComponent<Enemy>().Hit(2);
             Destroy(this.gameObject, .2f);
         }
     }
