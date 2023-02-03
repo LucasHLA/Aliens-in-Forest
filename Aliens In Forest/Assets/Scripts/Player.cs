@@ -7,10 +7,12 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigid;
     private Animator anim;
 
-    [SerializeField] private int health;
+    public int health;
     [SerializeField] private float speed;
     [SerializeField] private bool isShooting;
     [SerializeField] private bool isRunning;
+    [SerializeField] private bool recovery;
+    public bool takeDMG;
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        takeDMG = true;
     }
 
     
@@ -93,12 +96,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    [SerializeField] private float recoveryTime;
     public void Hit(int dmg)
     {
-        health -= dmg;
-        anim.SetTrigger("hit");
 
-        if (health <= 0)
+        recoveryTime += Time.deltaTime;
+
+        if(recoveryTime >= 2f && takeDMG)
+        {
+            health -= dmg;
+            anim.SetTrigger("hit");
+            recoveryTime = 0;
+        }
+
+        if (health <= 0 && !recovery)
         {
             Death();
         }
