@@ -16,12 +16,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private HealthBar healthBar;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         takeDMG = true;
+        healthBar.setMaxHealth(health);
     }
 
     
@@ -33,10 +35,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Shooting();
-        
+        healthBar.setHealth(health);
     }
 
-    private void Move()
+    private void Move() 
     {
         float horizontal = Input.GetAxis("Horizontal");
 
@@ -102,7 +104,7 @@ public class Player : MonoBehaviour
 
         recoveryTime += Time.deltaTime;
 
-        if(recoveryTime >= 2f && takeDMG)
+        if(recoveryTime >= 1f && takeDMG)
         {
             health -= dmg;
             anim.SetTrigger("hit");
