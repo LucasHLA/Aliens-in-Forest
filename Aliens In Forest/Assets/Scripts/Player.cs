@@ -114,6 +114,7 @@ public class Player : MonoBehaviour
         if (health <= 0 && !recovery)
         {
             Death();
+            GameController.instance.ShowGameOver();
         }
     }
 
