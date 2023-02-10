@@ -60,7 +60,6 @@ public class Enemy : MonoBehaviour
 
                 if (distance <= stopDistance)
                 {
-                    Debug.Log("Attacking");
                     isFront = false;
                     rigid.velocity = Vector2.zero;
                     anim.SetInteger("state", 2);
@@ -142,6 +141,6 @@ public class Enemy : MonoBehaviour
         anim.SetTrigger("dead");
         rigid.velocity = Vector2.zero;
         Destroy(this.gameObject, 0.6f);
-
+        GameController.instance.enemyKilled();
     }
 }

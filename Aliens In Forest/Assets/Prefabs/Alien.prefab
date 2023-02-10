@@ -230,7 +230,7 @@ MonoBehaviour:
   stopDistance: 1
   isFront: 0
   isRight: 1
-  speed: 5
-  health: 4
+  speed: 6
+  health: 3
   front: {fileID: 8213360618497137509}
   back: {fileID: 8213360617725211608}

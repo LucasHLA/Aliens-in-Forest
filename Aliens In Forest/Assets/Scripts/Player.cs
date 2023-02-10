@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rigid;
     private Animator anim;
 
     public int health;
+    [SerializeField] private float recoveryTime;
     [SerializeField] private float speed;
     [SerializeField] private bool isShooting;
     [SerializeField] private bool isRunning;
@@ -24,11 +26,13 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         takeDMG = true;
         healthBar.setMaxHealth(health);
+        
     }
 
     
     void FixedUpdate()
     {
+        
         Move();
     }
 
@@ -98,7 +102,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    [SerializeField] private float recoveryTime;
     public void Hit(int dmg)
     {
 
