@@ -118,6 +118,7 @@ public class Player : MonoBehaviour
         {
             Death();
             GameController.instance.ShowGameOver();
+            
         }
     }
 

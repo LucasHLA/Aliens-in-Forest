@@ -18,11 +18,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private TMP_Text totalEnemiesKilled;
     public int enemiesKilled;
 
-    [Header("Quest Related")]
+    [Header("Enemy Spawn")]
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject enemyPrefab;
     private int randomSpawn;
-
+    
     void Start()
     {
         instance = this;
@@ -36,11 +36,21 @@ public class GameController : MonoBehaviour
     void Update()
     {
         int randomSpawn = Random.Range(0, spawnPoints.Length);
+        totalEnemiesKilled.text = enemiesKilled.ToString();
+
         if (enemiesKilled >= enemiesAmount)
         {
             QuestText.SetActive(false);
             afterQuestText.SetActive(true);
+
+            var enemies = GameObject.FindGameObjectsWithTag("enemy");
+
+            foreach (GameObject en in GameObject.FindGameObjectsWithTag("enemy"))
+            {
+                Destroy(en);
+            }
         }
+
     }
 
     public void ShowGameOver()
@@ -56,7 +66,9 @@ public class GameController : MonoBehaviour
 
     public void spawnEnemy()
     {
+        int randomSpawn = Random.Range(0, spawnPoints.Length);
         Instantiate(enemyPrefab, spawnPoints[randomSpawn].position, transform.rotation);
+        
     }
     public void enemyKilled()
     {
@@ -64,7 +76,6 @@ public class GameController : MonoBehaviour
         {
             enemiesKilled++;
             spawnEnemy();
-        }
-        
+        } 
     }
 }

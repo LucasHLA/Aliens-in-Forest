@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Transform front;
     [SerializeField] private Transform back;
+    private BoxCollider2D bCol;
     private Rigidbody2D rigid;
     private Animator anim;
 
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        bCol = GetComponent<BoxCollider2D>();
 
         if (isRight)
         {
