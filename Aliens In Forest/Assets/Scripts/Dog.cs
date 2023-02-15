@@ -9,6 +9,8 @@ public class Dog : MonoBehaviour
     [SerializeField] private float followDistance;
     [SerializeField] private float idleTimer;
 
+    private Player playerHealth;
+    [SerializeField] private float healingTimer;
     private Animator anim;
 
     void Start()
@@ -59,7 +61,7 @@ public class Dog : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         anim.SetInteger("state", 3);
-        
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Healing();
     }
    
 
@@ -69,6 +71,7 @@ public class Dog : MonoBehaviour
         {  
             anim.SetInteger("state", 2);
             StartCoroutine(SitTransition());
+
         }
     }
 }

@@ -7,22 +7,24 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
+    [Header("GameOver Related")]
     public static GameController instance;
     public GameObject GameOver;
-    [SerializeField] private GameObject QuestText;
-    [SerializeField] private GameObject afterQuestText;
+    
 
     [Header("Quest Related")]
     private int enemiesAmount;
     [SerializeField] private TMP_Text totalEnemies;
     [SerializeField] private TMP_Text totalEnemiesKilled;
+    [SerializeField] private GameObject QuestText;
+    [SerializeField] private GameObject afterQuestText;
     public int enemiesKilled;
 
     [Header("Enemy Spawn")]
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject enemyPrefab;
     private int randomSpawn;
-    
+
     void Start()
     {
         instance = this;
@@ -30,7 +32,6 @@ public class GameController : MonoBehaviour
         totalEnemies.text = enemiesAmount.ToString();
         int randomSpawn = Random.Range(0, spawnPoints.Length-1);
         Instantiate(enemyPrefab, spawnPoints[randomSpawn].position, transform.rotation);
-        Debug.Log(randomSpawn);
     }
 
     void Update()
@@ -56,7 +57,8 @@ public class GameController : MonoBehaviour
     public void ShowGameOver()
     {
         GameOver.SetActive(true);
-        
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume = 0;
+        GameObject.FindGameObjectWithTag("Owl").GetComponent<AudioSource>().volume = 0;
     }
 
     public void Restart()

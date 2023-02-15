@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private Animator anim;
 
     public int health;
+    [SerializeField] private float healingTimer;
     [SerializeField] private float recoveryTime;
     [SerializeField] private float speed;
     [SerializeField] private bool isShooting;
@@ -19,6 +20,12 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private HealthBar healthBar;
+    private GameObject dog;
+
+    [Header("Audio Related")]
+    public AudioClip step;
+    public AudioClip shot;
+    private AudioController audioCtrl;
 
     void Start()
     {
@@ -26,14 +33,14 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         takeDMG = true;
         healthBar.setMaxHealth(health);
+        audioCtrl = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioController>();
         
     }
 
     
     void FixedUpdate()
-    {
-        
-        Move();
+    {  
+       Move();
     }
 
     private void Update()
@@ -118,7 +125,8 @@ public class Player : MonoBehaviour
         {
             Death();
             GameController.instance.ShowGameOver();
-            
+            Destroy(this.gameObject, 1f);
+            Destroy(GameObject.FindGameObjectWithTag("dog").gameObject, 1f);
         }
     }
 
@@ -127,5 +135,26 @@ public class Player : MonoBehaviour
         anim.SetTrigger("dead");
         speed = 0;
         
+    }
+
+    private void Steps()
+    {
+        audioCtrl.PlaySFX(step);
+    }
+
+    private void Shot()
+    {
+        audioCtrl.PlaySFX(shot);
+    }
+
+    public void Healing()
+    {
+        healingTimer += Time.deltaTime;
+
+        if (healingTimer >= 1.7f && health < 10)
+        {
+            health++;
+            healingTimer = 0f;
+        }
     }
 }
