@@ -8,11 +8,12 @@ TagManager:
   - audio
   - Owl
   - dog
+  - Bookshelf
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -56,6 +57,15 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1253308689
+    locked: 0
+  - name: Walls
+    uniqueID: 4038062261
+    locked: 0
+  - name: ceiling
+    uniqueID: 1569072265
+    locked: 0
+  - name: props
+    uniqueID: 1775992603
     locked: 0
   - name: Entity
     uniqueID: 504652463
