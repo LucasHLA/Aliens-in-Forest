@@ -10,17 +10,24 @@ public class AudioController : MonoBehaviour
     void Start()
     {
         audioSRC = GetComponent<AudioSource>();
-        
     }
-
-    // Update is called once per frame
     void Update()
     {
         audioSRC.volume = volume;
+
     }
 
     public void PlaySFX(AudioClip sfx)
     {
         audioSRC.PlayOneShot(sfx);
+        
     }
+
+    public void stopPlaying()
+    {
+        audioSRC.Stop();
+    }
+
+    
+    
 }

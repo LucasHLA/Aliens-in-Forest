@@ -17,7 +17,9 @@ public class NPC : MonoBehaviour
     public bool playerIsClose;
     public int index;
     public float typingSpeed;
+    public bool isActive;
 
+    public GameObject eKey;
     private void Start()
     {
         dialogueObj.SetActive(false);
@@ -25,30 +27,52 @@ public class NPC : MonoBehaviour
     }
     private void Update()
     {
-        Interact();
+        
         StartTalking();
-
+        CheckDialogue();
         if(index < sentences.Length)
         {
             nextLine();
         }
 
         nameText.text = names[index];
+
+        switch (nameText.text)
+        {
+            case "Riley":
+                nameText.color = new Color32(250, 139, 26, 255);
+                return;
+
+            case "Sheriff":
+                nameText.color = new Color32(207, 249, 249, 255);
+                return;
+        }
+
+        
+    }
+
+    private void FixedUpdate()
+    {
+        Interact();
     }
 
     public void StartTalking()
     {
-        if(playerIsClose && Input.GetKeyDown(KeyCode.E))
+        if(playerIsClose && Input.GetKeyDown(KeyCode.E)&& !isActive)
         {
             dialogueObj.SetActive(true);
             StartCoroutine(Typing());
+
         }
     }
 
     public void nextLine()
     {
+
+        
         if (dialogueObj.activeInHierarchy)
         {
+            
             if (Input.GetKeyDown(KeyCode.F))
             {
                 index++;
@@ -65,12 +89,26 @@ public class NPC : MonoBehaviour
         }
     }
 
+    void CheckDialogue()
+    {
+        if (dialogueObj.activeInHierarchy)
+        {
+            isActive = true;
+            eKey.SetActive(false);
+        }
+        else
+        {
+            isActive = false;
+        }
+    }
+
     private void zeroText()
     {
         index = 0;
         dialogueText.text = " ";
         nameText.text = " ";
         dialogueObj.SetActive(false);
+        isActive = false;
     }
 
     IEnumerator Typing()
@@ -78,7 +116,7 @@ public class NPC : MonoBehaviour
         foreach (char letter in sentences[index].ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSeconds(typingSpeed); 
         }
     }
     void Interact()
@@ -88,12 +126,14 @@ public class NPC : MonoBehaviour
         if(hit != null)
         {
             playerIsClose = true;
+            eKey.SetActive(true);
         }
         else
         {
             playerIsClose = false;
             dialogueObj.SetActive(false);
             index = 0;
+            eKey.SetActive(false);
         }
     }
 
