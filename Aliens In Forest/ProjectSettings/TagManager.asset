@@ -10,6 +10,8 @@ TagManager:
   - dog
   - Bookshelf
   - box
+  - Controller
+  - dialogue
   layers:
   - Default
   - TransparentFX

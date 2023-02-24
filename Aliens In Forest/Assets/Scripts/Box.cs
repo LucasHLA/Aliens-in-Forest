@@ -11,7 +11,7 @@ public class Box : MonoBehaviour
     public bool canInteract;
 
     public GameObject eKey;
- 
+    public int boxOrganized;
     void Update()
     {
         if (canInteract)
@@ -48,7 +48,7 @@ public class Box : MonoBehaviour
         {
             Destroy(this.gameObject);
             eKey.SetActive(false);
-            TDGC.instance.boxesOrganized++;
+            GameObject.FindGameObjectWithTag("Controller").GetComponent<TDGC>().boxesOrganized+=3;
         }
     }
 
