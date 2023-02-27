@@ -9,6 +9,8 @@ public class Exit : MonoBehaviour
     private SceneController sc;
     [SerializeField] private float radius;
     public LayerMask playerLayer;
+    public Animator crossfade;
+    [SerializeField] private float waitingTime;
     void Start()
     {
         sc = FindObjectOfType<SceneController>().GetComponent<SceneController>();
@@ -17,12 +19,12 @@ public class Exit : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapCircle(this.transform.position, radius, playerLayer);
 
-        if(hit != null)
+        if (hit != null)
         {
             eKey.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                sc.LoadScene(sceneName);
+                StartCoroutine(NextScene());
             }
         }
         else
@@ -34,4 +36,14 @@ public class Exit : MonoBehaviour
     {
         Gizmos.DrawWireSphere(this.transform.position, radius);
     }
+
+    IEnumerator NextScene()
+    {
+        crossfade.SetTrigger("Start");
+
+        yield return new WaitForSeconds(waitingTime);
+
+        sc.LoadScene(sceneName);
+    }
+
 }
