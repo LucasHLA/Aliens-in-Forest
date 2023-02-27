@@ -17,11 +17,15 @@ public class TDGC : MonoBehaviour
     public GameObject gun;
     private Animator camAnimator;
     [SerializeField] private float timer;
+
+    [Header("Audio")]
+    private AudioController audioCTRL;
+    public AudioClip earthquake;
     void Start()
     {
         instance = this;
         camAnimator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
-        
+        audioCTRL = GameObject.FindObjectOfType<AudioController>().GetComponent<AudioController>();
     }
 
 
@@ -36,6 +40,7 @@ public class TDGC : MonoBehaviour
             if(timer >= 2f)
             {
                 camAnimator.SetBool("isShaking", false);
+                
                 if(timer >= 3.5f)
                 {
                     afterQuest.SetActive(true);

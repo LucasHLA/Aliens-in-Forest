@@ -9,10 +9,15 @@ public class Gun : MonoBehaviour
     private int boxes;
     public GameObject eKey;
     private GameObject afterQuest;
+
+    [Header("Audio")]
+    private AudioController audioCTRL;
+    public AudioClip grabingGun;
     void Start()
     {
         boxes = GameObject.FindGameObjectWithTag("Controller").GetComponent<TDGC>().boxesOrganized;
         afterQuest = GameObject.FindGameObjectWithTag("Controller").GetComponent<TDGC>().afterQuest;
+        audioCTRL = GameObject.FindObjectOfType<AudioController>().GetComponent<AudioController>();
     }
 
    
@@ -34,6 +39,7 @@ public class Gun : MonoBehaviour
             if(afterQuest.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
             {
                 this.gameObject.SetActive(false);
+                audioCTRL.PlaySFX(grabingGun);
                 eKey.SetActive(false);
             }
             
