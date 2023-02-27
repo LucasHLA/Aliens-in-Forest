@@ -6,13 +6,16 @@ public class TopDownPlayer : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D rigid;
+    [SerializeField] private AudioClip woodStep;
     [SerializeField] private float speed;
+    private AudioController audioCTRL;
 
     Vector2 movement;
     void Start()
     {
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
+        audioCTRL = GameObject.FindObjectOfType<AudioController>().GetComponent<AudioController>();
     }
 
     
@@ -35,5 +38,10 @@ public class TopDownPlayer : MonoBehaviour
     private void FixedUpdate()
     {
         rigid.MovePosition(rigid.position + movement.normalized * speed * Time.deltaTime);
+    }
+
+    public void Step()
+    {
+        audioCTRL.PlaySFX(woodStep);
     }
 }

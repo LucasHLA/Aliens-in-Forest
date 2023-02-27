@@ -22,11 +22,9 @@ public class Gun : MonoBehaviour
 
         if(hit != null)
         {
-            Debug.Log(boxes);
-            if(boxes == 9)
+            if(afterQuest.activeInHierarchy)
             {
                 eKey.SetActive(true);
-                Debug.Log("IT worked with the E object");
             }
             else
             {
@@ -35,7 +33,7 @@ public class Gun : MonoBehaviour
 
             if(afterQuest.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
             {
-                Destroy(this.gameObject);
+                this.gameObject.SetActive(false);
                 eKey.SetActive(false);
             }
             

@@ -12,6 +12,7 @@ TagManager:
   - box
   - Controller
   - dialogue
+  - gun
   layers:
   - Default
   - TransparentFX

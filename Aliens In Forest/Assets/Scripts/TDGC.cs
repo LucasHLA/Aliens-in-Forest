@@ -13,6 +13,8 @@ public class TDGC : MonoBehaviour
     public bool interaction;
     public GameObject quest;
     public GameObject afterQuest;
+    public GameObject exit;
+    public GameObject gun;
     private Animator camAnimator;
     [SerializeField] private float timer;
     void Start()
@@ -39,6 +41,15 @@ public class TDGC : MonoBehaviour
                     afterQuest.SetActive(true);
                 }
             }
+        }
+
+        if(gun.activeInHierarchy)
+        {
+            exit.SetActive(false);
+        }
+        else
+        {
+            exit.SetActive(true);
         }
     }
 }
