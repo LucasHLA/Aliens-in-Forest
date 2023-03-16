@@ -22,6 +22,7 @@ public class Exit : MonoBehaviour
         if (hit != null)
         {
             eKey.SetActive(true);
+            eKey.transform.eulerAngles = new Vector3(eKey.transform.position.x, eKey.transform.position.y, eKey.transform.position.z);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 StartCoroutine(NextScene());

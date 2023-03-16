@@ -3634,6 +3634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneNameNext: 
+  click: {fileID: 0}
 --- !u!4 &1272120006
 Transform:
   m_ObjectHideFlags: 0
@@ -6689,7 +6690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2194480069602756466, guid: b2c7874c81f66bb46b4deec3d350b74e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2194480069602756469, guid: b2c7874c81f66bb46b4deec3d350b74e, type: 3}
       propertyPath: m_Pivot.x

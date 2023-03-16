@@ -132,6 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 149672377}
+  - component: {fileID: 149672378}
+  - component: {fileID: 149672379}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -153,6 +155,116 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149672378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149672376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d8a918f8df8ee4094328f9b782866d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNameNext: Final
+  click: {fileID: 8300000, guid: 1ff4bf5171b66eb42810a3be4a3c45c7, type: 3}
+--- !u!82 &149672379
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149672376}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &495701305
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,14 +292,14 @@ RectTransform:
   m_GameObject: {fileID: 495701305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.391, y: 0.391, z: 0.391}
+  m_LocalScale: {x: 0.24420688, y: 0.24420688, z: 0.24420688}
   m_Children: []
   m_Father: {fileID: 1758656887}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00014114, y: -161.87108}
+  m_AnchoredPosition: {x: 0.00014114, y: -171}
   m_SizeDelta: {x: 875.2797, y: 210.381}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495701307
@@ -443,7 +555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Main Menu
+  m_Text: 'Next
 
 '
 --- !u!222 &969589920
@@ -488,7 +600,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00014114, y: 70}
+  m_AnchoredPosition: {x: 0.00014114, y: 30}
   m_SizeDelta: {x: 2046, y: 1130.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1374868163
@@ -523,32 +635,32 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.82
   m_Text: 'After she went back inside the cabin, Riley still couldn''t believe what
     she had just seen.
 
-    
+
 
     "What were those monsters?" she wondered aloud.
 
-    
+
 
     Riley
     and Sheriff stayed awake for the rest of the night, holding her gun and listening
     for any strange noises. Despite their vigilance, they couldn''t determine whether
     the creatures they had encountered were extraterrestrial or not.
 
-    
 
-    As
-    the first light of dawn began to filter through the trees, Riley realized that
-    her shift was almost over. She knew that she needed to report what had happened
-    to the police unit as soon as possible.
 
-    
+    As the
+    first light of dawn began to filter through the trees, Riley realized that her
+    shift was almost over. She knew that she needed to report what had happened to
+    the police unit as soon as possible.
 
-    With a heavy heart, she
-    packed up her things and prepared to leave the safety of her cabin.'
+
+
+    With a heavy heart, she packed up
+    her things and prepared to leave the safety of her cabin.'
 --- !u!222 &1374868164
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -696,7 +808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00014114, y: -218}
+  m_AnchoredPosition: {x: 0.00014114, y: -199}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1823255266
@@ -742,7 +854,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1823255267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 149672378}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: MoveScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1823255267
 MonoBehaviour:
   m_ObjectHideFlags: 0
